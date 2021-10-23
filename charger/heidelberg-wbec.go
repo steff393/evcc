@@ -135,14 +135,14 @@ func (wb *wbec) Enabled() (bool, error) {
 
 // Enable implements the api.Charger interface
 func (wb *wbec) Enable(enable bool) error {
-	_, err := wb.response(fmt.Sprintf("currLim=%d", wb.current * 10))
+	_, err := wb.response(fmt.Sprintf("currLim=%d", wb.current))
 	return err
 }
 
 // MaxCurrent implements the api.Charger interface
 func (wb *wbec) MaxCurrent(current int64) error {
 	wb.current = current
-	_, err := wb.response(fmt.Sprintf("currLim=%d", current * 10))
+	_, err := wb.response(fmt.Sprintf("currLim=%d", current))
 	return err
 }
 
